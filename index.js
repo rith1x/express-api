@@ -1,5 +1,5 @@
 import express from 'express';
-const cors = require('cors');
+import cors from 'cors';
 import quote from './routes/quote.js'; // Ensure .js extension
 const app = express();
 
