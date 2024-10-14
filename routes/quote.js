@@ -45,7 +45,7 @@ apiInit();
 });
 router.get('/',(req,res)=>{
     
-
+res.json({response:"Server is Live! 😉"})
 
 })
 router.get('/:id',(req,res)=>{
