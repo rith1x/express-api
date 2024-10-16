@@ -19,6 +19,17 @@ function apiInit() {
 
 apiInit();
 
+
+router.get('/search',(req,res)=>{
+    if (Object.keys(req.query).length === 0) {
+        res.json({msg:"No queries found!"})
+      } else {
+        res.json({msg:"No queries found!"})
+      }
+})
+
+
+
 // Define the /random route
 router.get('/random', (req, res) => {
 apiInit();

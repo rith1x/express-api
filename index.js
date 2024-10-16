@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import quote from './routes/quote.js'; // Ensure .js extension
+import tics from './routes/tics.js'; // Ensure .js extension
 const app = express();
 
 const allowedOrigins = ['https://rith1x.github.io', 'http://127.0.0.1:5501'];
@@ -16,8 +17,7 @@ app.use(cors({
 }));
 // Basic route
 app.get('/', (req, res) => {
-  const name = process.env.NAME || 'World';
-  res.send(`Hello ${name}!`);
+  res.json({message:"Hey there, I'm up and running!"})
 });
 
 // Quote route
