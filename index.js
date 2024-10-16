@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
 
 // Quote route
 app.use('/quote', quote);
+app.use('/tics', tics);
 
 const port = parseInt(process.env.PORT) || 3001;
 
