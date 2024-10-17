@@ -69,7 +69,14 @@ router.get('/join/:rc',(req,res)=>{
         res.json({msg:"Room doesn't exist"})
     }
 })
-
+router.get('/state/:rc',(req,res)=>{
+    let room = rooms[req.params.rc]
+    if(room.playerCount == 2){
+        res.json({state:"Ready"})
+    }else{
+        res.json({state:"Waiting"})
+    }
+})
 router.get('/play/:rc/:r/:x/:y',(req,res)=>{
     // code | turn | x | y |
     let room = rooms[req.params.rc]
