@@ -40,10 +40,10 @@ class Room{
 }
 
 function codeGen(){
-    let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789abcdefghijklmnopqrstuvwxyz'
+    let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789'
     let gen = ''
     while(gen.length != 6){
-        gen+=chars[Math.floor(Math.random() * gen.length)]
+        gen+=chars[Math.floor(Math.random() * chars.length)]
     }
     return gen
 }
