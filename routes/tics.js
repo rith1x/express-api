@@ -1,6 +1,5 @@
 import express from 'express';
 // import { readFileSync } from 'fs';
-const WebSocket = require('ws')
 const router = express.Router();
 const rooms ={};
 class Room{
