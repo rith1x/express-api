@@ -14,7 +14,7 @@ let data;
 function apiInit() {
     const file = readFileSync('./routes/quotes.json', 'utf8'); // Ensure correct path
     data = JSON.parse(file);
-    console.log(data);
+    // console.log(data);
 }
 
 apiInit();
@@ -51,7 +51,7 @@ apiInit();
     //     }
     //    } 
         
-        console.log(qbj)
+        // console.log(qbj)
     res.json({min:minLength,max:maxLength, quote: data[rdm].quote, author: data[rdm].author,category :data[rdm].category,id:rdm });
 });
 router.get('/',(req,res)=>{
