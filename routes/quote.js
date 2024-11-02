@@ -19,20 +19,24 @@ function apiInit() {
 
 apiInit();
 
+router.get('/', (req, res) => {
+    res.json({ service: "quotes" })
+})
 
-router.get('/search',(req,res)=>{
+
+router.get('/search', (req, res) => {
     if (Object.keys(req.query).length === 0) {
-        res.json({msg:"No queries found!"})
-      } else {
-        res.json({msg:"No queries found!"})
-      }
+        res.json({ msg: "No queries found!" })
+    } else {
+        res.json({ msg: "No queries found!" })
+    }
 })
 
 
 
 // Define the /random route
 router.get('/random', (req, res) => {
-apiInit();
+    apiInit();
 
     let rdm = genRandom();
     let qbj = data[rdm]
@@ -50,26 +54,26 @@ apiInit();
     //            console.log(qbj)
     //     }
     //    } 
-        
-        // console.log(qbj)
-    res.json({min:minLength,max:maxLength, quote: data[rdm].quote, author: data[rdm].author,category :data[rdm].category,id:rdm });
+
+    // console.log(qbj)
+    res.json({ min: minLength, max: maxLength, quote: data[rdm].quote, author: data[rdm].author, category: data[rdm].category, id: rdm });
 });
-router.get('/',(req,res)=>{
-    
-res.json({response:"Server is Live! 😉"})
+router.get('/', (req, res) => {
+
+    res.json({ response: "Server is Live! 😉" })
 
 })
-router.get('/:id',(req,res)=>{
-apiInit();
+router.get('/:id', (req, res) => {
+    apiInit();
 
     let rdm = req.params.id;
-    res.json({ quote: data[rdm].quote, author: data[rdm].author,category :data[rdm].category,id:rdm });
+    res.json({ quote: data[rdm].quote, author: data[rdm].author, category: data[rdm].category, id: rdm });
 })
 
 
-router.get('/categories',(req,res)=>{
+router.get('/categories', (req, res) => {
     res.json({
-        categories : ['life', 'happiness', 'love', 'truth', 'inspiration', 'humor', 'philosophy', 'science', '', 'soul', 'books', 'wisdom', 'knowledge', 'education', 'poetry', 'hope', 'friendship', 'writing', 'religion', 'death', 'romance', 'success', 'arts', 'relationship', 'motivation', 'faith', 'mind', 'god', 'funny', 'quotes', 'positive', 'purpose']
+        categories: ['life', 'happiness', 'love', 'truth', 'inspiration', 'humor', 'philosophy', 'science', '', 'soul', 'books', 'wisdom', 'knowledge', 'education', 'poetry', 'hope', 'friendship', 'writing', 'religion', 'death', 'romance', 'success', 'arts', 'relationship', 'motivation', 'faith', 'mind', 'god', 'funny', 'quotes', 'positive', 'purpose']
     })
 })
 export default router;
