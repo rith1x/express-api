@@ -65,7 +65,7 @@ router.get('/', (rq, rs) => {
 router.get('/check/:user', (rq, rs) => {
     let un = rq.params.user
     let data = parseData()
-        
+
     for (let user in data) {
         if (data[user].details.username == un) {
             rs.json({ msg: "Username already taken" })
@@ -84,6 +84,7 @@ router.post('/new', (rq, rs) => {
             "name": dx.name,
             "joined_date": getDate(),
             "img": dx.img,
+            "id": id,
             "username": dx.username
         },
         "games": {
@@ -91,12 +92,16 @@ router.post('/new', (rq, rs) => {
         "gems": []
     }
     if (writeData(id, data)) {
-
-        return rs.json({ status: "success", data: data })
+        return rs.json({ status: "success", data: data, id: id })
     }
 
     rs.json({ status: "failed" })
 
+})
+router.get('/get/:id', (rq, rs) => {
+    let id = rq.params.id
+    let parsed = parseData()
+    rs.json(parsed[id])
 })
 router.get('/update/:id/:game/:score', (rq, rs) => {
     let id = rq.params.id;
